@@ -78,20 +78,16 @@ header {
   font-weight: bold;
   border: 0;
   padding: 0;
-  height: 58px;
+  height: 60px;
+  width: 40px;
   cursor: pointer;
   background-color: rgb(130, 130, 130);
   color: gainsboro;
-  flex-grow: 1;
   margin-right: 6px;
   border-radius: 4px;
   user-select: none;
 }
 
 .keyboard-row button.wide-button {
-  flex-grow: 1.5;
-}
-
-.spacer-half {
-  flex-grow: 0.5;
+  width: 80px;
 }
