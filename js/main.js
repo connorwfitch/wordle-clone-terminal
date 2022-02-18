@@ -12,6 +12,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // defining my secret word as an array
   const secretWord = 'frank';
 
+  // initializing win and lose checks
+  let win = false;
+  let lose = false;
+
   // defining the basic keyboard inputs
   for (let i = 0; i < keys.length; i++) {
     keys[i].onclick = ({target}) => {
@@ -29,6 +33,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // generic update function
   function updateGuessedWords(letter) {
+    if(win || lose) {
+      return;
+    }
     const currentWordArray = getCurrentWordArray();
 
     // only want to be adding letters when able or deleting when able
@@ -49,8 +56,21 @@ document.addEventListener("DOMContentLoaded", () => {
         availableSpaceEl.textContent = letter;
       }
     } else if (letter === 'enter' && currentWordArray.length === 5) {
-      // enter handling
-      checkWord(currentWordArray);
+      // checking the word
+      let winCheck = checkWord(currentWordArray);
+      console.log(winCheck);
+      if(winCheck[0] && winCheck[1] && winCheck[2] && winCheck[3] && winCheck[4]) {
+        // display win somehow
+        console.log('You Win!')
+        win = true;
+      } else if(guessedWords.length === 5) {
+        // display lose
+        console.log('You Lose!')
+        lose = true;
+      } else {
+        // new word
+        guessedWords.push([]);
+      }
     }
   }
 
@@ -71,7 +91,6 @@ document.addEventListener("DOMContentLoaded", () => {
     let yellows = [false,false,false,false,false];
     // green check
     for (let i = 0; i < 5; i++) {
-      console.log(wordArray[i],secretWord[i],wordArray[i] === secretWord[i]);
       if (wordArray[i] === secretWord[i]) {
         // remove the letter from check
         const index = check.indexOf(wordArray[i]);
@@ -104,6 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       currentSpace ++;
     }
+    return greens;
   }
 
 
