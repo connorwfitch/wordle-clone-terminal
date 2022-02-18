@@ -9,8 +9,16 @@ document.addEventListener("DOMContentLoaded", () => {
   let guessedWords = [[]];
   let availableSpace = 0;
 
-  // defining my secret word as an array
-  const secretWord = 'frank';
+  // defining my secret word
+  const secretWordList = ['bleep', 'shove', 'south', 'north', 'stove',
+                          'frank', 'opera', 'music', 'shelf', 'shirt',
+                          'pitch', 'young', 'brick', 'watch', 'waist',
+                          'soggy', 'birch', 'every', 'those', 'knoll',
+                          'bread', 'trunk', 'troll', 'house', 'pants',
+                          'shoes', 'gruff', 'fruit', 'onion', 'grasp',
+                          'glove', 'tweet', 'adore', 'truss', 'count'];
+
+  const secretWord = secretWordList[Math.floor(Math.random() * secretWordList.length)];
 
   // initializing win and lose checks
   let win = false;
@@ -62,10 +70,12 @@ document.addEventListener("DOMContentLoaded", () => {
         // display win somehow
         console.log('You Win!')
         win = true;
+        setTimeout(window.alert, 1500, 'Congratulations! You\'ve won!');
       } else if(guessedWords.length === 5) {
         // display lose
         console.log('You Lose!')
         lose = true;
+        window.alert('Sorry, try again tomorrow...')
       } else {
         // new word
         guessedWords.push([]);
@@ -84,6 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // checks a word against the secret word
   function checkWord(wordArray) {
     let check = secretWord.split('');
     let greens = [false,false,false,false,false];
@@ -115,12 +126,17 @@ document.addEventListener("DOMContentLoaded", () => {
     let currentSpace = availableSpace - 5;
     for (let i = 0; i < 5; i++) {
       const workingEle = document.getElementById(String(currentSpace));
+      workingEle.classList.add('reveal');
       // need to do something here with the flipping etc
       if(greens[i]) {
         workingEle.classList.add('green');
       } else if(yellows[i]) {
         workingEle.classList.add('yellow');
       }
+      setTimeout(function () {
+        workingEle.classList.remove('reveal');
+        workingEle.classList.add('revealed');
+      }, 700)
       currentSpace ++;
     }
     return greens;
