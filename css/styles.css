@@ -4,7 +4,8 @@
 }
 
 html, body {
-  height: 100%;
+  min-height: 100%;
+  background-color: black;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 
     'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
@@ -12,7 +13,6 @@ html, body {
 #container {
   display: flex;
   background-color: black;
-  height: 100%;
   align-items: center;
   flex-direction: column;
 }
@@ -69,9 +69,18 @@ header {
   align-items: center;
 }
 
+.yellow {
+  background-color: gold;
+}
+
+.green {
+  background-color: #49b81f;
+}
+
 #keyboard-container {
   height: 200px;
   margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .keyboard-row {
@@ -95,6 +104,10 @@ header {
   margin-right: 6px;
   border-radius: 4px;
   user-select: none;
+}
+
+.keyboard-row button:active {
+  box-shadow: 0px 0px 5px white;
 }
 
 .keyboard-row button.wide-button {
