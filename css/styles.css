@@ -127,3 +127,10 @@ header {
 .keyboard-row button.wide-button {
   width: 60px;
 }
+
+@media only screen and (max-width: 600px){
+  body {
+    transform: scale(0.9);
+    transform-origin: 0 0;
+  }
+}
