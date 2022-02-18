@@ -58,7 +58,6 @@ document.addEventListener("DOMContentLoaded", () => {
     } else if (letter === 'enter' && currentWordArray.length === 5) {
       // checking the word
       let winCheck = checkWord(currentWordArray);
-      console.log(winCheck);
       if(winCheck[0] && winCheck[1] && winCheck[2] && winCheck[3] && winCheck[4]) {
         // display win somehow
         console.log('You Win!')
