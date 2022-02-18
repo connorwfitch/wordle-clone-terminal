@@ -115,6 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let currentSpace = availableSpace - 5;
     for (let i = 0; i < 5; i++) {
       const workingEle = document.getElementById(String(currentSpace));
+      // need to do something here with the flipping etc
       if(greens[i]) {
         workingEle.classList.add('green');
       } else if(yellows[i]) {
