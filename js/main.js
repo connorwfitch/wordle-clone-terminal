@@ -132,6 +132,9 @@ document.addEventListener("DOMContentLoaded", () => {
         workingEle.classList.add('green');
       } else if(yellows[i]) {
         workingEle.classList.add('yellow');
+      } else {
+        const deadKey = document.getElementById(wordArray[i]);
+        deadKey.classList.add('dead-key');
       }
       setTimeout(function () {
         workingEle.classList.remove('reveal');

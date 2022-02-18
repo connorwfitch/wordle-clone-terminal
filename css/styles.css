@@ -87,6 +87,10 @@ header {
   background-color: #49b81f;
 }
 
+.keyboard-row button.dead-key {
+  background-color: rgb(85, 85, 85);
+}
+
 #keyboard-container {
   height: 200px;
   margin-top: 2rem;
