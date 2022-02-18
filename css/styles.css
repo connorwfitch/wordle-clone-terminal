@@ -69,6 +69,16 @@ header {
   align-items: center;
 }
 
+.reveal {
+  box-shadow: 0 0 5px white;
+  transition: 500ms;
+}
+
+.revealed {
+  box-shadow: 0 0 0 white;
+  transition: 500ms;
+}
+
 .yellow {
   background-color: #eaa800;
 }
@@ -107,7 +117,7 @@ header {
 }
 
 .keyboard-row button:active {
-  box-shadow: 0px 0px 5px white;
+  box-shadow: 0px 0px 7px white;
 }
 
 .keyboard-row button.wide-button {
