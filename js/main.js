@@ -132,7 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
         workingEle.classList.add('green');
       } else if(yellows[i]) {
         workingEle.classList.add('yellow');
-      } else {
+      } else if(!secretWord.includes(wordArray[i])) {
         const deadKey = document.getElementById(wordArray[i]);
         deadKey.classList.add('dead-key');
       }
