@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log('You Win!')
         win = true;
         setTimeout(window.alert, 1500, 'Congratulations! You\'ve won!');
-      } else if(guessedWords.length === 5) {
+      } else if(guessedWords.length === 6) {
         // display lose
         console.log('You Lose!')
         lose = true;
